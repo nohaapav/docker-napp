@@ -1,0 +1,10 @@
+{
+  "name": "docker-napp",
+  "version": "1.0.0",
+  "description": "Docker NODE app returning its container id when hit or simple redirect",
+  "author": "Pavol Noha <pavol.noha@gmail.com>",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
