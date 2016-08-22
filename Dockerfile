@@ -1,5 +1,5 @@
 FROM iron/node
-MAINTAINER Pavol Noha <pavol.noha@google.com>
+MAINTAINER Pavol Noha <pavol.noha@gmail.com>
 
 WORKDIR /app
 ADD . /app
