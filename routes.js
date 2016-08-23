@@ -4,17 +4,19 @@ var http = require("http");
 
 var appRouter = function (app) {
     app.get("/", function (req, res) {
-        res.send("I'm " + os.hostname());
+        var result = util.format("I'm %s \n", os.hostname()); 
+        res.send(result);
     });
 
     app.get('/redirect/:service', function (req, res) {
         var serviceName = req.params.service
         var serviceUrl = ["http://", serviceName, ":", 8080];
-        var url = serviceUrl.join();
-        http.get(url, function (res) {
-            res.on('data', function (chunk) {
-                var response = util.format("Redirecting from [%s] to %s \nResponse: %s", os.hostname(), url, chunk);
-                res.send(response);
+        var url = serviceUrl.join("");
+        var response
+        http.get(url, function (response) {
+            response.on('data', function (chunk) {
+                var result = util.format("Redirecting from [%s] to %s \nResponse: %s", os.hostname(), url, chunk);
+                res.send(result);
             });
         }).end();
     });
